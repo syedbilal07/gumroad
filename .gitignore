@@ -62,3 +62,5 @@ nomad/
 docs/ssh.md
 test-branch-creation.log
 .vercel
+mkcert-v1.4.4-linux-amd64
+docker/local-nginx/certs/*.pem
