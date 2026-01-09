@@ -4,6 +4,7 @@ import { fetchServerInfo } from "$app/data/discord_integration";
 import { DISCORD_CLIENT_ID, DISCORD_OAUTH_URL } from "$app/utils/integrations";
 import { startOauthRedirectChecker } from "$app/utils/oauth";
 
+import { BrandIcon } from "$app/components/BrandIcon";
 import { Button } from "$app/components/Button";
 import { LoadingSpinner } from "$app/components/LoadingSpinner";
 import { useProductEditContext } from "$app/components/ProductEdit/state";
@@ -116,7 +117,7 @@ export const DiscordIntegrationEditor = ({
                     setIsLoading(false);
                   }}
                 >
-                  <span className="icon brand-icon-discord" />
+                  <BrandIcon name="discord" />
                   Disconnect Discord
                 </Button>
               </div>

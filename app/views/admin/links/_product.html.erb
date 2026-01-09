@@ -5,7 +5,7 @@
       <div style="display: grid; gap: var(--spacer-2)">
         <h2>
           <%= product.price_formatted %>, <%= link_to_unless_current(h(product.name), admin_product_url(product), title: product.id) %>
-          <%= link_to(tag.span(nil, class: "icon icon-arrow-up-right-square"), product.long_url, target: "_blank") %>
+          <%= link_to(icon_tag("arrow-up-right-square"), product.long_url, target: "_blank") %>
         </h2>
         <div>
           <ul class="inline">
