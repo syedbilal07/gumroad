@@ -17,7 +17,9 @@ overlay.appendChild(content);
 
 const overlayCloseButton = document.createElement("button");
 overlayCloseButton.className = "button filled fixed right-3 top-3";
-overlayCloseButton.innerHTML = '<span class="icon icon-x"></span>';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const iconUrl = require("images/icons/x.svg");
+overlayCloseButton.innerHTML = `<span class="inline-block bg-current shrink-0 align-middle w-[1em] min-h-[max(1lh,1em)]" style="mask: url(${iconUrl}) center / 120% no-repeat; -webkit-mask: url(${iconUrl}) center / 120% no-repeat;"></span>`;
 overlay.appendChild(overlayCloseButton);
 
 const overlayIframe = document.createElement("iframe");
@@ -50,7 +52,15 @@ const registerButton = (button: HTMLAnchorElement) => {
   }
 
   const logo = document.createElement("span");
-  logo.className = "logo-full";
+  logo.className = "inline-block bg-current shrink-0";
+  logo.style.width = "7.1428em"; // Ratio 1/0.14
+  logo.style.minHeight = "max(1lh, 1em)";
+  // We assume 'require' works if this is processed by Webpack, otherwise we need another way.
+  // Given it's a TS file in app/javascript, it likely is.
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const logoUrl = require("images/logo.svg");
+  logo.style.mask = `url(${logoUrl}) center / contain no-repeat`;
+  logo.style.webkitMask = `url(${logoUrl}) center / contain no-repeat`;
   button.appendChild(logo);
 };
 
